@@ -1,0 +1,174 @@
+
+<html>
+<head>
+<title>Shoes</title>
+<link rel="stylesheet" type="text/css" href="project2.css"/>
+<script type="text/javascript">
+
+function validatemyinput ()
+{
+
+
+var valid = new Boolean(true);
+
+phone = document.getElementById ("thephone").value
+if (phone.substring(0,3) != "087")
+	{
+	valid = false;
+	document.getElementById ("thephone").style.borderColor ="#ff0000";
+	}
+
+	return valid;
+}
+
+
+function main(value)
+
+	{	var price = 60;
+		if (value == 1)
+			{
+				document.getElementById("mainColour").src = "images/greymain.png";
+				
+			}
+		else if (value == 2)
+			{
+				document.getElementById("mainColour").src = "images/bluemain.png";
+				price = price + 10;
+			}
+		else if (value == 3)
+			{
+				document.getElementById("mainColour").src = "images/main.png";
+				price = price + 10;
+			}
+		else if (value == 4)
+			{
+				document.getElementById("mainColour").src = "images/turkmain.png";
+				price = price + 10;
+			}
+	document.getElementById ("theprice").innerHTML = price;
+	}
+ 
+function details(value)
+	{ 
+		if (value == 1)
+			{
+				document.getElementById("detailsColour").src = "images/greytick.png";
+		
+			}
+		else if (value == 2)
+			{
+				document.getElementById("detailsColour").src = "images/purpletick.png";
+			
+			}
+		else if (value == 3)
+			{
+				document.getElementById("detailsColour").src = "images/bluetick.png";
+		
+			}
+		
+		else if (value == 4)
+			{
+				document.getElementById("detailsColour").src = "images/greentick.png";
+			
+			}
+		
+	}
+	
+function laces(value)
+
+	{
+
+		if (value == 1)
+			{
+				document.getElementById("lacesColour").src = "images/greylace.png";
+			}
+		else if (value == 2)
+			{
+				document.getElementById("lacesColour").src = "images/pinklaces.png";
+			
+			}
+		else if(value == 3)
+			{
+				document.getElementById("lacesColour").src = "images/bluelaces.png";
+				
+				
+			}
+	
+	}
+
+</script>
+</head>
+<body>
+
+<header>
+<h1> Customise Your Shoes </h1>
+</header>
+<img src="images/greymain.png" alt="shoe" id="mainColour"/>
+<img src="images/greytick.png" alt="shoe" id="detailsColour"/>
+<img src="images/greylace.png" alt="shoe" id="lacesColour"/>
+
+
+
+<div id = "select">
+<br>
+<h2>SHOE DETAILS</h2>
+<p>Which colour would you like?
+<br>
+	<SELECT onclick="main(value)">
+		<OPTION name="main" id = "Greybase" value="1" selected >Grey (Free)</OPTION>
+		<OPTION name="main" id = "Bluebase" value="2">Blue (&euro;10)</OPTION>
+		<OPTION name="main" id = "Redbase" value="3">Red (&euro;10)</OPTION>
+		<OPTION name="main"id = "Turquoisebase" value="4">Turquoise (&euro;10)</OPTION>
+	</SELECT>
+		
+<p>Which colour tick would you like?
+<br>
+	<input type="radio" name="details" id = "Greytick" onclick="details(value)" value="1" checked >Grey (FREE) <br>
+	<input type="radio" name="details" id = "purpletick" onclick="details(value)" value="2">Purple (&euro;5) <br>
+	<input type="radio" name="details" id = "bluetick" onclick="details(value)" value="3">Blue (&euro;5) <br>
+	<input type="radio" name="details" id = "Greentick" onclick="details(value)" value="4">Green (&euro;5)
+</p>
+	
+<p>Which colour laces would you like?
+<br>
+	<input type="radio" name="laces" id = "Greylace" onclick="laces(value)" value="1" checked > Grey (FREE) <br>
+	<input type="radio" name="laces" id = "Pinklace" onclick="laces(value)" value="2"> Pink (&euro;2) <br>
+	<input type="radio" name="laces" id = "Bluelace" onclick="laces(value)" value="3"> Blue (&euro;2)
+</p>
+
+
+<p>Please choose a Size:
+	<select>
+		<option selected>5
+		<option>6
+		<option>7
+		<option>8
+		<option>9
+		<option>10
+	</select>
+	
+</p>
+</div>
+
+<div id = "personal">
+<form id="customerdetails" onsubmit="return validatemyinput();"  method="get" action="http://atlantis.cit.ie/displayvalues.php">
+<br>
+<h2>PERSONAL DETAILS </h2>
+<br><br>
+Name: <input type="text" id="thename" name="name" required /><br/><br/>
+
+Telephone: <input type="tel" id="thephone" name="usrtel" required /><br/><br/>
+
+E-mail: <input type="email" name="email"required /><br/><br/>
+
+
+
+
+Price: <span id="theprice">60</span><br/><br/>
+
+<input type="submit" value="Buy Now" onclick="" /><br/><br/>
+ 
+</form>
+</div>
+</body>
+</html>
